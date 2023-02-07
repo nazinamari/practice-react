@@ -8,13 +8,20 @@ export class Hint extends Component {
         intervalId: null,
     };
 
+    handleMouseMove = () => {
+        console.log('moving');
+    }
+
     componentDidMount() {
         intervalId = setInterval(() => {
             this.setState((prevState) =>({ counter: prevState.counter + 1}))
         }, 1000);
+
+        window.addEventListener('mousemove', this.handleMouseMove);
     }
     componentWillUnmount() {
         clearInterval(intervalId);
+        window.removeEventListener('mousemove', this.handleMouseMove);
     }
 
     render() {
