@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Gallery } from './Gallery';
 import { Button } from './Button/Button';
+import { Hint } from './Hint/Hint';
 
 export class App extends Component {
 
@@ -24,7 +25,7 @@ export class App extends Component {
     },
   ]
 
-  toggleGallery = () => {
+  toggle = () => {
     this.setState(({isOpen}) => ({isOpen: !isOpen}));
   };
 
@@ -37,9 +38,10 @@ export class App extends Component {
     const {pixs, isOpen } = this.state;
     return(
       <>
-        <Button onClick={this.toggleGallery}>Toggle Gallery</Button>
+        <Button onClick={this.toggle}>Toggle Gallery</Button>
         {isOpen && <Gallery pixs={pixs} />}
         {this.cars.map((car, id) => <Button key={id} id={car.id} onClick={this.showActiveCar} children={car.name}/>)}
+        {isOpen && <Hint/>}
       </>
     )
   };
