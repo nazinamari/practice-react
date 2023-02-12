@@ -17,9 +17,9 @@ export class App extends Component {
       const cat = await fetchCatByBreed(breedId)
       this.setState({ cat });
     } catch (error) {
-      this.setState({error: "Что-то пошло не так"})
+      this.setState({ error: "Что-то пошло не так" });
     } finally {
-      this.setState({isLoading: false});
+      this.setState({ isLoading: false });
     }
   };
 

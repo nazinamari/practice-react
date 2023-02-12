@@ -3,12 +3,12 @@ export const Cat = ({ cat: { breeds, url } }) => {
 
     return (
         <div style={{ display: 'flex' }}>
-            <img scr={url} alt={name} width="320"/>
-            <div>
-                <p>Name: {name}</p>
-                <p>Bred for: {bred_for}</p>
-                <p>Temperament: {temperament}</p>
-            </div>
+        <img src={url} alt={name} width="320"/>
+        <div>
+            <p>Name: {name}</p>
+            <p>Bred for: {bred_for}</p>
+            <p>Temperament: {temperament}</p>
+        </div>
         </div>
     );
 };
