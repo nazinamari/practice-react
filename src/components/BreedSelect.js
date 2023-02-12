@@ -11,7 +11,7 @@ export class BreedSelect extends Component {
 
     async componentDidMount() {
         try {
-            this.setState({isLoading: true})
+            this.setState({isLoading: true, error: null })
             const breeds = await fetchBreeds();
             this.setState({breeds});
         } catch (error) {
