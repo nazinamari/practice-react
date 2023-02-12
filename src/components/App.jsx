@@ -3,6 +3,8 @@ import { Layout } from './Layout';
 import { BreedSelect } from './BreedSelect';
 import { fetchCatByBreed } from './api';
 import { Cat } from './Cat';
+import { CatSkeleton } from './CatSkeleton';
+import { ErrorMessage } from './ErrorMessage';
 
 export class App extends Component {
   state = {
@@ -28,8 +30,8 @@ export class App extends Component {
     return (
       <Layout>
         <BreedSelect onSelect={this.fetchCat} />
-        {isLoading && <div>Loading...</div>}
-        {error && <p style={{ color: 'orange' }}>{error}</p>}
+        {isLoading && <CatSkeleton />}
+        {error && <ErrorMessage>{error}</ErrorMessage>}
         {cat && !isLoading && <Cat cat={cat} />}
       </Layout>
     )
